@@ -1,3 +1,6 @@
+AVISO: ATUALMENTE ESTE DOCUMENTO README ESTA SENDO USADO APENAS PARA CHECAR O PROGRESSO DO CODIGO COM BASE NA IDEIA***********
+
+
 Proximos passos:
 1- ler caracteres e separar em: numeros e operadores
     *usando ENUM, separar os caracteres da string em tipos NUMBER, e tipos OPERATOR, depois demonstrar na tela quantos de cada tipo e quais, na sequencia.
