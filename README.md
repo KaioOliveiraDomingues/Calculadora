@@ -4,15 +4,17 @@ AVISO: ATUALMENTE ESTE DOCUMENTO README ESTA SENDO USADO APENAS PARA CHECAR O PR
 Proximos passos:
 1- ler caracteres e separar em: numeros e operadores
     *usando ENUM, separar os caracteres da string em tipos NUMBER, e tipos OPERATOR, depois demonstrar na tela quantos de cada tipo e quais, na sequencia.
-FEITO 
-
-
 2- diferenciar partes da equação
     *separar cada numero individualmente (basicamente, após o codigo encontrar um OPERATOR, todos os numeros anteriores sao considerados um unico NUMBER)
     #EXTRA: funcionar com numeros de ponto flutuante
+FEITO
+
+
 3- executar equação
     *incialmente apenas adiçoes e subtraçoes, posteriormente adicionar divisao e multiplicação
     #EXTRA: adicionar funçoes de calculadora cientifica
+PARCIALMENTE FEITO (SOMENTE 1 OPERADOR POR EQUAÇÃO ATÉ AGORA)
+
 4- interface
     *construir interface do zero para as funcionalidades da calculadora
     #EXTRA: interface ser visualmente agradavel
