@@ -1,5 +1,6 @@
 namespace Calculadora;
 using System;
+using System.Formats.Asn1;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
@@ -53,30 +54,96 @@ public sealed class Symbols
         }
         return false;   
     }
+    //metodo para guardo o numero
+    public int StoreNumber(string Number)
+    {
+        int trueNumber = 0;
+
+        try
+        {
+            trueNumber = Int32.Parse(Number);
+        }
+        catch(FormatException e)
+        {
+            Console.WriteLine(e);
+        }
+
+        return trueNumber;
+    }
+
+    //metodo pro calculo (FINALMENTE)
+    public int ProcessEquation(int FirstNumber, int SecondNumber, char OperatorChar)
+    {
+        int Result = 0;
+        switch(OperatorChar)
+        {
+            case '+':
+                Result = FirstNumber + SecondNumber;
+            break;
+            case '-':
+                Result = FirstNumber - SecondNumber;
+            break;
+        }
+        return Result;
+    }
+
     //lendo a string que contem a equação e separando cada tipo de simbolo;
     public void ReadEquation(string Equation)
     {
         string NumbersConfirmed = "";
         string OperatorsConfirmed = "";
         string InvalidsConfirmed = "";
+
+        string ActualNumbers = "";
+        int TempNumber1 = 0;
+        int TempNumber2 = 0;
+        char NextOperation = ' ';
+        int FinalResult = 0;
+
         //separando numeros de operadores de invalidos;
         foreach (char Symbol in Equation)
         {
             if(Numbers.CheckForNumber(Symbol) == true)
             {
                 NumbersConfirmed += Symbol;
+                ActualNumbers += Symbol;
             }
             else if(Operators.CheckForOperator(Symbol) == true)
             {
+                if(TempNumber1 != 0 && TempNumber2 != 0)
+                {
+                    TempNumber1 = ProcessEquation(TempNumber1, TempNumber2, NextOperation);
+                    TempNumber2 = 0;
+                    ActualNumbers = "";
+                }
+                else if(TempNumber1 != 0)
+                {
+                    TempNumber2 = StoreNumber(ActualNumbers);
+                    ActualNumbers = "";
+                }
+                else
+                {
+                    TempNumber1 = StoreNumber(ActualNumbers);
+                    ActualNumbers = "";
+                }
+                NextOperation = Symbol;
                 OperatorsConfirmed += Symbol;            
             }
+            else
+            {
                 InvalidsConfirmed += Symbol;
+            }
+                
         }
 
-        Console.WriteLine("Numbers Counted: " + NumbersConfirmed + " Operators Counted: " + OperatorsConfirmed + " Invalid Symbols: " + InvalidsConfirmed);
+        TempNumber2 = Int32.Parse(ActualNumbers);
+        FinalResult = ProcessEquation(TempNumber1, TempNumber2, NextOperation);
+
+        Console.WriteLine("FINAL RESULT = "+ FinalResult);
+        Console.WriteLine("Full Equation: "+ Equation +" Numbers Counted: " + NumbersConfirmed + " Operators Counted: " + OperatorsConfirmed + " Invalid Symbols: " + InvalidsConfirmed);
     }
 }
-
+//nao uso mais, ta ai porque nao tive vontade de apagar ainda
 public class Calculo
 { 
 
