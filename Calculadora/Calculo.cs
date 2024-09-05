@@ -118,6 +118,8 @@ public sealed class Symbols
     }
 
     //lendo a string que contem a equação e separando cada tipo de simbolo;
+
+    //ARRUMAR, POIS ALGO AQUI ESTA FAZENDO Q UM SIMBOLO DE + ANTES DO PRIMEIRO VALOR SEJA CONSIDERADO UM SIMBOLO DE -, FAZENDO COM Q +2+2 POR EXEMPLO SEJA LIDO COMO -2+2
     public void ReadEquation(string Equation)
     {
         string NumbersConfirmed = "";
