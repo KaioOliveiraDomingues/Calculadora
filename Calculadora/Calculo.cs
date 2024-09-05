@@ -173,10 +173,18 @@ public sealed class Symbols
                 
         }
 
-        TempNumber2 = Int32.Parse(ActualNumbers);
+        TempNumber2 = int.Parse(ActualNumbers);
         FinalResult = ProcessEquation(TempNumber1, TempNumber2, NextOperation);
 
         Console.WriteLine("FINAL RESULT = "+ FinalResult);
         //Console.WriteLine("Full Equation: "+ Equation +" Numbers Counted: " + NumbersConfirmed + " Operators Counted: " + OperatorsConfirmed);
     }
 }
+
+//a partir daqui vamos tentar fazer a leitura da equação como um todo para seguir as regras da matematica (multiplicação e divisão antes de adição e subtração por exemplo)
+
+public sealed class Reader
+{
+
+}
+

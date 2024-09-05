@@ -13,7 +13,7 @@ FEITO
 3- executar equação
     *incialmente apenas adiçoes e subtraçoes, posteriormente adicionar divisao e multiplicação
     #EXTRA: adicionar funçoes de calculadora cientifica
-PARCIALMENTE FEITO (SOMENTE 1 OPERADOR POR EQUAÇÃO ATÉ AGORA)
+PARCIALMENTE FEITO (FUNCIONA, MAS NAO COMO UMA EQUAÇÃO, APENAS FAZ OPERAÇÕES EM SEQUENCIA)
 
 4- interface
     *construir interface do zero para as funcionalidades da calculadora
